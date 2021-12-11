@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Przelewów Elixir</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styl.css">
+</head>
+<body>
+    <h1>Import Przelewów Elixir</h1>
+    <h2>Przykład wiersza/rekordu do importu z pliku tekstowego (mBank)</h2>
+
+    <p>
+        110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”
+    </p>
+
+    <code>
+        110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”
+    </code>
+    
+    <p>Słaby przykład, bez opisów poszczególnych pól! Więcej informacji (podobno) na <a href="https://www.mbank.pl/firmy/uslugi-serwis-transakcyjny/import-przelewow/">stronie mBanku</a></p>
+    <p>Witryny innych banków posiadają lepiej rozpisane pola, zakladając że to ta sama specyfikacja <code>Elixir-0</code>.</p>
+
+    <script src="js/aplikacja.js"></script>
+</body>
+</html>
