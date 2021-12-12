@@ -8,21 +8,42 @@
     <link rel="stylesheet" href="css/styl.css">
 </head>
 <body>
-    <h1>Import Przelewów Elixir</h1>
-    <h2>Przykład wiersza/rekordu do importu z pliku tekstowego (mBank)</h2>
+    <div class="witryna">
+        <header>
+            <nav>
+                <div class="nawigacja">
+                    <a class="logo" href="#">Tu dać Logo </a>
+                    <ul>
+                        <li><a href="#">Nowy import</a></li>
+                        <li><a href="#">Kontrahenci</a></li>
+                        <li><a href="#">Ustawienia</a></li>
+                        <li><a href="#">Opcja nr 4</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-    <p>
-        110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”
-    </p>
+        <main>
+            <h1>Import Przelewów Elixir</h1>
+            <h2>Przykład wiersza/rekordu do importu z pliku tekstowego (mBank)</h2>
+        
+            <p>
+                110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”
+            </p>
+        
+            <code>
+                110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”
+            </code>
+        
+            <p>Słaby przykład, bez opisów poszczególnych pól! Więcej informacji (podobno) na <a href="https://www.mbank.pl/firmy/uslugi-serwis-transakcyjny/import-przelewow/">stronie mBanku</a></p>
+            <p>Witryny innych banków posiadają lepiej rozpisane pola, zakladając że to ta sama specyfikacja <code>Elixir-0</code>.</p>
+        </main>
+    
+        <footer>
+            <p>&copy; 2021 <em>Importer</em></p>
+        </footer>
+    </div>
 
-    <code>
-        110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”
-    </code>
-
-    <p>Słaby przykład, bez opisów poszczególnych pól! Więcej informacji (podobno) na <a href="https://www.mbank.pl/firmy/uslugi-serwis-transakcyjny/import-przelewow/">stronie mBanku</a></p>
-    <p>Witryny innych banków posiadają lepiej rozpisane pola, zakladając że to ta sama specyfikacja <code>Elixir-0</code>.</p>
-
-    <footer>&copy; 2021</footer>
     <script src="js/aplikacja.js"></script>
 </body>
 </html>

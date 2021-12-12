@@ -7,12 +7,13 @@
 body {
     font-size: 1em;
     background-color: bisque;
+    padding: 0.5rem;
 }
 
 h1 {
     color: dimgray;
     font-size: 250%;
-    padding: 0.5em;	
+    padding: 0.5rem;	
     font-weight: bold;
 }
 
@@ -20,11 +21,11 @@ h2 {
     font-size: 200%;
     font-weight: bold;
     color: gray;
-    padding: 0.5em;	
+    padding: 0.5rem;	
 }
 
 p  {
-    padding: 0.25em;
+    padding: 0.25rem;
 }
 
 a {
@@ -32,4 +33,58 @@ a {
     text-decoration-line: underline;
     text-decoration-style: solid;
     color: indigo;
+}
+
+em {
+    font-style: italic;
+}
+
+header {
+    background-color: darkseagreen;
+}
+
+.nawigacja {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: slategrey;
+}
+
+.nawigacja > ul {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    background-color: papayawhip;
+}
+
+.nawigacja > ul > li {
+    padding: 0.5rem 1rem;
+    background-color: mintcream;
+}
+
+.nawigacja > ul > li:hover {
+    color:mediumblue;
+    background-color: lightsteelblue;
+}
+
+main {
+    background-color: ivory;
+}
+
+main > * {
+    margin: 1rem auto;
+}
+
+footer {
+    background-color: cadetblue;
+}
+
+footer > p {
+    text-align: center;
+    padding: 1rem;
+}
+
+.witryna {
+    background-color: mediumspringgreen;
+    padding: 0.25rem;
 }

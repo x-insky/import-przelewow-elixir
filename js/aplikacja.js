@@ -1,1 +1,0 @@
-alert('Wygrałeś właśnie 100 milionów, tyllko bank jest już zamkniety!');
