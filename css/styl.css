@@ -88,3 +88,34 @@ footer > p {
     background-color: mediumspringgreen;
     padding: 0.25rem;
 }
+
+.menu-pozaekranowe {
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.kontener-pozaekranowy {
+    background-color: burlywood;
+    padding: 0.2rem;
+    width: 390%;
+    overflow: scroll;
+}
+
+.kontener-pozaekranowy > ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+    height: 200px;
+}
+
+.kontener-pozaekranowy li {
+    background-color: khaki;
+    flex-basis: 80%;
+    padding: 1em;
+    margin: 0.3em;
+    margin-left: 1.5rem;
+}
+
+.kontener-pozaekranowy li:first-of-type {
+    margin-left: 0;
+}
