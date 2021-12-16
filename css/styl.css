@@ -5,6 +5,7 @@
 }
 
 body {
+    font-family: 'Rubik', sans-serif;
     font-size: 1em;
     background-color: bisque;
     padding: 0.5rem;
@@ -108,6 +109,7 @@ footer > p {
     height: 200px;
     animation: przewijacz-czteroelementowy 20s ease-in-out infinite forwards;
     animation-direction: alternate-reverse;     /* zmiana kierunku animacji po wykonainiu pełnego cyklu; animacja komplementarna 0% == 100% */
+    animation-play-state: running;
 }
 
 .kontener-pozaekranowy li {
@@ -116,6 +118,7 @@ footer > p {
     padding: 1em;
     margin: 0.3em;
     margin-left: 1.5rem;
+
 }
 
 .kontener-pozaekranowy li:first-of-type {
@@ -126,6 +129,9 @@ footer > p {
     background-color: lemonchiffon;
 }
 
+.kontener-pozaekranowy > ul:hover {
+    animation-play-state: paused;
+}
 
         /*  ********************************************
                     A   N   I   M   A   C   J   E       
