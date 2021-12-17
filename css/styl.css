@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Rubik', sans-serif;
-    font-size: 1em;
+    font-size: 1rem;
     background-color: bisque;
     padding: 0.5rem;
 }
@@ -38,6 +38,11 @@ a {
 
 em {
     font-style: italic;
+}
+
+
+strong {
+    font-weight: bold;
 }
 
 header {
@@ -105,24 +110,24 @@ footer > p {
     display: flex;
     flex-direction: row;
     position: relative;
-    padding: 0.5rem;
     height: 200px;
     animation: przewijacz-czteroelementowy 20s ease-in-out infinite forwards;
-    animation-direction: alternate-reverse;     /* zmiana kierunku animacji po wykonainiu pełnego cyklu; animacja komplementarna 0% == 100% */
+    animation-direction: alternate-reverse;     /* zmiana kierunku animacji po wykonaniu pełnego cyklu; animacja komplementarna 0% == 100% */
     animation-play-state: running;
 }
 
 .kontener-pozaekranowy li {
     background-color: khaki;
     flex-basis: 80%;
-    padding: 1em;
-    margin: 0.3em;
-    margin-left: 1.5rem;
+    padding: 1rem;
+    margin: 0.3rem;
+    margin-left: 1rem;
+    transition: opacity 0.15s ease-in;
 
 }
 
 .kontener-pozaekranowy li:first-of-type {
-    margin-left: 0.3em;
+    margin-left: 0.3rem;
 }
 
 .kontener-pozaekranowy li:nth-of-type(2n) {
@@ -132,6 +137,12 @@ footer > p {
 .kontener-pozaekranowy > ul:hover {
     animation-play-state: paused;
 }
+
+.kontener-pozaekranowy > ul li:hover {
+    opacity: 0.85;
+    cursor:pointer;
+}
+
 
         /*  ********************************************
                     A   N   I   M   A   C   J   E       
@@ -155,5 +166,4 @@ footer > p {
     90%, 100% {
         left: 0;
     }
-
 }
