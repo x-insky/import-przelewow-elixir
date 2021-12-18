@@ -75,6 +75,7 @@ header {
 
 main {
     background-color: ivory;
+    margin: 1rem auto;
 }
 
 main > * {
@@ -123,7 +124,6 @@ footer > p {
     margin: 0.3rem;
     margin-left: 1rem;
     transition: opacity 0.15s ease-in;
-
 }
 
 .kontener-pozaekranowy li:first-of-type {
@@ -141,6 +141,35 @@ footer > p {
 .kontener-pozaekranowy > ul li:hover {
     opacity: 0.85;
     cursor:pointer;
+}
+
+main > section {
+    margin: 3rem auto;
+    background-color: linen;
+
+}
+
+main .kontener-pozaekranowy {
+    background-color: lightsalmon;
+    width: 500%;    /* 5 * 100% == pięć elementów */
+}
+
+main .kontener-pozaekranowy > article {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    background-color: lightgray;
+    min-height: 500px;      /* proteza */
+    min-height: 70vh;
+}
+
+main .kontener-pozaekranowy section {
+    background-color: lightblue;
+    flex-basis: 100%;
+    padding: 1rem;
+    margin: 0.3rem;
+    margin-left: 1rem;
+    transition: left 1s;
 }
 
 

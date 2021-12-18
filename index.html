@@ -15,12 +15,12 @@
         <header>
             <nav>
                 <div class="nawigacja">
-                    <a class="logo" href="#">Tu dać Logo </a>
+                    <a class="logo" href="#start">Tu dać Logo </a>
                     <ul>
-                        <li><a href="#">Nowe zlecenie</a></li>
-                        <li><a href="#">Kontrahenci</a></li>
-                        <li><a href="#">Ustawienia</a></li>
-                        <li><a href="#">Pomoc</a></li>
+                        <li><a href="#nowe-zlecenie">Nowe zlecenie</a></li>
+                        <li><a href="#kontrahenci">Kontrahenci</a></li>
+                        <li><a href="#ustawienia">Ustawienia</a></li>
+                        <li><a href="#pomoc">Pomoc</a></li>
                     </ul>
                 </div>
             </nav>
@@ -38,21 +38,52 @@
         </aside>
 
         <main>
-            <h1>Import Przelewów Elixir</h1>
-            <h2>Przykład wiersza/rekordu do importu z pliku tekstowego (mBank)</h2>
-        
-            <p>
-                <strong>110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”</strong>
-            </p>
-        
-            <p>Jeszcze raz to samo, tylko równą czcionką:</p>
+
+            <section class="menu-pozaekranowe">
+                <div class="kontener-pozaekranowy">
+                    <article>
+                        <section id="start">
+                            <h2>Start</h2>
+                        </section>
+
+                        <section id="nowe-zlecenie">
+                            <h2>Nowe zlecenie</h2>
+                        </section>
+
+                        <section id="kontrahenci">
+                            <h2>Nowe zlecenie</h2>
+                        </section>
+
+                        <section id="ustawienia">
+                            <h2>Ustawienia</h2>
+                        </section>
+
+                        <section id="pomoc">
+                            <h2>Pomoc</h2>
+                        </section>
+
+                    </article>
+                </div>
+
+            </section>            
+
+            <section>
+                <h1>Import Przelewów Elixir</h1>
+                <h2>Przykład wiersza/rekordu do importu z pliku tekstowego (mBank)</h2>
             
-            <code>
-                110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”
-            </code>
-        
-            <p>Słaby przykład, bez opisów poszczególnych pól! Więcej informacji (podobno) na <a href="https://www.mbank.pl/firmy/uslugi-serwis-transakcyjny/import-przelewow/">stronie mBanku</a></p>
-            <p>Witryny innych banków posiadają lepiej rozpisane pola, zakladając że to ta sama specyfikacja <code>Elixir-0</code>.</p>
+                <p>
+                    <strong>110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”</strong>
+                </p>
+            
+                <p>Jeszcze raz to samo, tylko równą czcionką:</p>
+                
+                <code>
+                    110,20170330,1110,11402004,0,”49114020040000330200112177”,”11102033520000205312345060”,”Nazwa i adres zleceniodawcy| Część 2 nazwy i adresu | maksymalnie 35 znaków na sekcję “,”Nazwa i adres kontrahenta”,0,10203352,”Tytuł”,””,””,”51”
+                </code>
+            
+                <p>Słaby przykład, bez opisów poszczególnych pól! Więcej informacji (podobno) na <a href="https://www.mbank.pl/firmy/uslugi-serwis-transakcyjny/import-przelewow/">stronie mBanku</a></p>
+                <p>Witryny innych banków posiadają lepiej rozpisane pola, zakladając że to ta sama specyfikacja <code>Elixir-0</code>.</p>
+            </section>
         </main>
     
         <footer>
