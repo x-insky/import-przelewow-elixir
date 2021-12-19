@@ -63,12 +63,14 @@ header {
     background-color: papayawhip;
 }
 
-.nawigacja > ul > li {
+.nawigacja a {
+    display: block;
     padding: 0.5rem 1rem;
     background-color: mintcream;
 }
 
-.nawigacja > ul > li:hover {
+.nawigacja a:hover, 
+.nawigacja a:focus {
     color:mediumblue;
     background-color: lightsteelblue;
 }
@@ -161,6 +163,9 @@ main .kontener-pozaekranowy > article {
     background-color: lightgray;
     min-height: 500px;      /* proteza */
     min-height: 70vh;
+    left: 0;
+    transform: translateX(0%);
+    transition: left ease-in-out 0.7s, translate ease-in-out 1s;
 }
 
 main .kontener-pozaekranowy section {
@@ -169,9 +174,11 @@ main .kontener-pozaekranowy section {
     padding: 1rem;
     margin: 0.3rem;
     margin-left: 1rem;
-    transition: left 1s;
 }
 
+main .kontener-pozaekranowy section:nth-of-type(2n) {
+    background-color: lightskyblue;
+}
 
         /*  ********************************************
                     A   N   I   M   A   C   J   E       
