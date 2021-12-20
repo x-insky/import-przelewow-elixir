@@ -52,20 +52,21 @@ header {
 .nawigacja {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
     background-color: slategrey;
 }
 
 .nawigacja > ul {
     justify-content: space-between;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: 0.65rem;
     background-color: papayawhip;
 }
 
 .nawigacja a {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     background-color: mintcream;
 }
 
@@ -78,6 +79,9 @@ header {
 main {
     background-color: ivory;
     margin: 1rem auto;
+    word-wrap: break-word;  
+    word-break: break-word;     /* przenosi do nowego wiersza całe wyrazy, jelsi nie może to dzieli myślnikiem (definicja poniżej), ale długaśne ciągi urywa i w nową linię pakuje   */
+    hyphens: auto;      /* automatycznie wstawianie myślników przy przenoszenieu "słów", ale nie dla "bełkotu" lub "randomów" znakowych */ 
 }
 
 main > * {
@@ -202,4 +206,37 @@ main .kontener-pozaekranowy section:nth-of-type(2n) {
     90%, 100% {
         left: 0;
     }
+}
+
+        /*  ********************************************
+                    K   W   E   R   E   N   D   Y     
+            ********************************************
+        */
+
+
+@media screen and (min-width: 460px) {
+
+    .nawigacja > ul {
+        justify-content: space-between;
+        align-items: stretch;
+        flex-direction: row;
+    }
+
+}
+
+@media screen and (min-width: 700px) {
+    
+    .nawigacja {
+        flex-direction: row;
+    }
+
+    .nawigacja > ul {
+        align-items: stretch;
+        margin-top: 0;
+    }
+
+    .nawigacja a {
+        padding: 0.5rem 1rem;
+    }
+
 }
