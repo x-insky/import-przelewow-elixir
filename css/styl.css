@@ -98,8 +98,10 @@ footer > p {
 }
 
 .witryna {
-    background-color: mediumspringgreen;
+    max-width: 1200px;
     padding: 0.25rem;
+    margin: 0 auto;
+    background-color: mediumspringgreen;
 }
 
 .menu-pozaekranowe {
@@ -150,7 +152,7 @@ footer > p {
 }
 
 main > section {
-    margin: 3rem auto;
+    margin: 1.5rem auto;
     background-color: linen;
 
 }
@@ -237,6 +239,10 @@ main .kontener-pozaekranowy section:nth-of-type(2n) {
 
     .nawigacja a {
         padding: 0.5rem 1rem;
+    }
+
+    header + .menu-pozaekranowe {
+        margin: 1.5rem 1rem;
     }
 
 }
