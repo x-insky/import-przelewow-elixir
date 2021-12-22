@@ -119,16 +119,20 @@ footer > p {
     display: flex;
     flex-direction: row;
     position: relative;
-    height: 200px;
+    min-height: 20px;   /* przykładowa mała  wysokość, którą i tak rozszerzy zawartość <li> najwyszższego elementu w grupie */  
     animation: przewijacz-czteroelementowy 20s ease-in-out infinite forwards;
     animation-direction: alternate-reverse;     /* zmiana kierunku animacji po wykonaniu pełnego cyklu; animacja komplementarna 0% == 100% */
     animation-play-state: running;
 }
 
 .kontener-pozaekranowy li {
-    background-color: khaki;
     flex-basis: 80%;
-    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* padding: 1rem; */
+    background-color: khaki;
     margin: 0.3rem;
     margin-left: 1rem;
     transition: opacity 0.15s ease-in;
@@ -149,6 +153,11 @@ footer > p {
 .kontener-pozaekranowy > ul li:hover {
     opacity: 0.85;
     cursor:pointer;
+}
+
+.kontener-pozaekranowy li img {
+    max-width: 100%;
+    height: auto;
 }
 
 main > section {
