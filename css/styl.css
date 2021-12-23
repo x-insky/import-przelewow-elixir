@@ -40,9 +40,13 @@ em {
     font-style: italic;
 }
 
-
 strong {
     font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 header {
@@ -84,10 +88,6 @@ main {
     hyphens: auto;      /* automatycznie wstawianie myślników przy przenoszenieu "słów", ale nie dla "bełkotu" lub "randomów" znakowych */ 
 }
 
-main > * {
-    margin: 1rem auto;
-}
-
 footer {
     background-color: cadetblue;
 }
@@ -126,7 +126,7 @@ footer > p {
 }
 
 .kontener-pozaekranowy li {
-    flex-basis: 80%;
+    flex-basis: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -155,16 +155,22 @@ footer > p {
     cursor:pointer;
 }
 
-.kontener-pozaekranowy li img {
-    max-width: 100%;
-    height: auto;
-}
-
 main > section {
     margin: 1.5rem auto;
+    padding: 1rem 0.5rem;
     background-color: linen;
-
 }
+
+main > section p {
+    text-align: justify;
+}
+
+
+main > section img {
+    display: block;
+    margin: 1rem auto;
+}
+
 
 main .kontener-pozaekranowy {
     background-color: lightsalmon;
