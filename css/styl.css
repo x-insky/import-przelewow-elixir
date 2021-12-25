@@ -157,24 +157,25 @@ footer > p {
 
 main > section {
     margin: 1.5rem auto;
-    padding: 1rem 0.5rem;
     background-color: linen;
+}
+
+main > section:last-of-type {
+    padding: 0.25rem;
 }
 
 main > section p {
     text-align: justify;
 }
 
-
 main > section img {
     display: block;
     margin: 1rem auto;
 }
 
-
 main .kontener-pozaekranowy {
-    background-color: lightsalmon;
     width: 500%;    /* 5 * 100% == pięć elementów */
+    background-color: lightsalmon;
 }
 
 main .kontener-pozaekranowy > article {
@@ -185,6 +186,7 @@ main .kontener-pozaekranowy > article {
     min-height: 500px;      /* proteza */
     min-height: 70vh;
     left: 0;
+    overflow: hidden;
     transform: translateX(0%);
     transition: left ease-in-out 0.7s, translate ease-in-out 1s;
 }
@@ -192,9 +194,7 @@ main .kontener-pozaekranowy > article {
 main .kontener-pozaekranowy section {
     background-color: lightblue;
     flex-basis: 100%;
-    padding: 1rem;
-    margin: 0.3rem;
-    margin-left: 1rem;
+    padding: 0.25rem;
 }
 
 main .kontener-pozaekranowy section:nth-of-type(2n) {
@@ -239,6 +239,11 @@ main .kontener-pozaekranowy section:nth-of-type(2n) {
         flex-direction: row;
     }
 
+    main > section:last-of-type,
+    main .kontener-pozaekranowy section {
+        padding: 0.5rem;
+    }
+
 }
 
 @media screen and (min-width: 700px) {
@@ -258,6 +263,11 @@ main .kontener-pozaekranowy section:nth-of-type(2n) {
 
     header + .menu-pozaekranowe {
         margin: 1.5rem 1rem;
+    }
+
+    main > section:last-of-type,
+    main .kontener-pozaekranowy section {
+        padding: 0.75rem;
     }
 
 }
