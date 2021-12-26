@@ -8,7 +8,7 @@ body {
     font-family: 'Rubik', sans-serif;
     font-size: 1rem;
     background-color: bisque;
-    padding: 0.5rem;
+    padding: 0.25rem;
 }
 
 h1 {
@@ -50,7 +50,20 @@ img {
 }
 
 header {
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    margin-left: -0.5rem;  /* lekarstwo na elament, jakoby wypadajacy z kontenera głównego */
+    z-index: 100;
+    padding: 0.25rem;
     background-color: darkseagreen;
+}
+
+.witryna {
+    max-width: 1200px;
+    padding: 0.25rem;
+    margin: 0 auto;
+    background-color: mediumspringgreen;
 }
 
 .nawigacja {
@@ -71,6 +84,12 @@ header {
 .nawigacja a {
     display: block;
     padding: 0.75rem 1rem;
+    background-color: mintcream;
+}
+
+.nawigacja a:last-of-type {
+    display: block;
+    padding-right: 2rem;
     background-color: mintcream;
 }
 
@@ -97,16 +116,13 @@ footer > p {
     padding: 1rem;
 }
 
-.witryna {
-    max-width: 1200px;
-    padding: 0.25rem;
-    margin: 0 auto;
-    background-color: mediumspringgreen;
-}
-
 .menu-pozaekranowe {
     overflow: hidden;
     margin: 2rem 0;
+}
+
+aside.menu-pozaekranowe {
+    margin-top: 250px;  /* wartośc odczytana z poprzedniego rozmiaru headera, bez marginesu odzielającego (235px + margin) */
 }
 
 .kontener-pozaekranowy {
@@ -244,9 +260,17 @@ main .kontener-pozaekranowy section:nth-of-type(2n) {
         padding: 0.5rem;
     }
 
+    header + .menu-pozaekranowe {
+        margin-top: 8rem;
+    }
+
 }
 
 @media screen and (min-width: 700px) {
+
+    header {
+        max-width: 1200px;
+    }
     
     .nawigacja {
         flex-direction: row;
@@ -263,11 +287,20 @@ main .kontener-pozaekranowy section:nth-of-type(2n) {
 
     header + .menu-pozaekranowe {
         margin: 1.5rem 1rem;
+        margin-top: 4rem;
     }
 
     main > section:last-of-type,
     main .kontener-pozaekranowy section {
         padding: 0.75rem;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    header {
+        margin-left: -0.25rem;
     }
 
 }
