@@ -116,21 +116,24 @@ footer > p {
     padding: 1rem;
 }
 
+.bannery-pozaekranowe,
 .menu-pozaekranowe {
     overflow: hidden;
     margin: 2rem 0;
 }
 
-aside.menu-pozaekranowe {
+aside.bannery-pozaekranowe {
     margin-top: 250px;  /* wartośc odczytana z poprzedniego rozmiaru headera, bez marginesu odzielającego (235px + margin) */
 }
 
+.bannery-kontener,
 .kontener-pozaekranowy {
     background-color: burlywood;
     padding: 0.2rem;
     width: 400%;
 }
 
+.bannery-kontener > ul,
 .kontener-pozaekranowy > ul {
     display: flex;
     flex-direction: row;
@@ -141,31 +144,35 @@ aside.menu-pozaekranowe {
     animation-play-state: running;
 }
 
+.bannery-kontener li,
 .kontener-pozaekranowy li {
     flex-basis: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* padding: 1rem; */
     background-color: khaki;
     margin: 0.3rem;
     margin-left: 1rem;
     transition: opacity 0.15s ease-in;
 }
 
+.bannery-kontener li:first-of-type,
 .kontener-pozaekranowy li:first-of-type {
     margin-left: 0.3rem;
 }
 
+.bannery-kontener li:nth-of-type(2n),
 .kontener-pozaekranowy li:nth-of-type(2n) {
     background-color: lemonchiffon;
 }
 
+.bannery-kontener > ul:hover,
 .kontener-pozaekranowy > ul:hover {
     animation-play-state: paused;
 }
 
+.bannery-kontener > ul li:hover,
 .kontener-pozaekranowy > ul li:hover {
     opacity: 0.85;
     cursor:pointer;
@@ -189,12 +196,12 @@ main > section img {
     margin: 1rem auto;
 }
 
-main .kontener-pozaekranowy {
+.kontener-pozaekranowy {
     width: 500%;    /* 5 * 100% == pięć elementów */
     background-color: lightsalmon;
 }
 
-main .kontener-pozaekranowy > article {
+.kontener-pozaekranowy > article {
     display: flex;
     flex-direction: row;
     position: relative;
@@ -207,13 +214,13 @@ main .kontener-pozaekranowy > article {
     transition: left ease-in-out 0.7s, translate ease-in-out 1s;
 }
 
-main .kontener-pozaekranowy section {
+.kontener-pozaekranowy section {
     background-color: lightblue;
     flex-basis: 100%;
     padding: 0.25rem;
 }
 
-main .kontener-pozaekranowy section:nth-of-type(2n) {
+.kontener-pozaekranowy section:nth-of-type(2n) {
     background-color: lightskyblue;
 }
 
@@ -256,11 +263,11 @@ main .kontener-pozaekranowy section:nth-of-type(2n) {
     }
 
     main > section:last-of-type,
-    main .kontener-pozaekranowy section {
+    .kontener-pozaekranowy section {
         padding: 0.5rem;
     }
 
-    header + .menu-pozaekranowe {
+    header + .bannery-pozaekranowe {
         margin-top: 8rem;
     }
 
@@ -285,13 +292,13 @@ main .kontener-pozaekranowy section:nth-of-type(2n) {
         padding: 0.5rem 1rem;
     }
 
-    header + .menu-pozaekranowe {
+    header + .bannery-pozaekranowe {
         margin: 1.5rem 1rem;
         margin-top: 4rem;
     }
 
     main > section:last-of-type,
-    main .kontener-pozaekranowy section {
+    .kontener-pozaekranowy section {
         padding: 0.75rem;
     }
 
