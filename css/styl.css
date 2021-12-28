@@ -11,22 +11,28 @@ body {
     padding: 0.25rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
 h1 {
     color: dimgray;
     font-size: 250%;
-    padding: 0.5rem;	
-    font-weight: bold;
 }
 
 h2 {
     font-size: 200%;
-    font-weight: bold;
     color: gray;
-    padding: 0.5rem;	
+}
+
+h3 {
+    color: darkgrey;
+    font-size: 175%;
 }
 
 p  {
-    padding: 0.25rem;
+    padding: 0.75rem 0.25rem;
 }
 
 a {
@@ -222,6 +228,13 @@ main > section img {
 
 .kontener-pozaekranowy section:nth-of-type(2n) {
     background-color: lightskyblue;
+}
+
+.rozjasniony-polprzezroczysty-blokowy {
+    display: block;
+    padding: 0.75rem 0.5rem;
+    margin: 0.75rem auto;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
         /*  ********************************************
