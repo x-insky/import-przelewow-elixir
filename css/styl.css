@@ -93,7 +93,7 @@ header {
     background-color: mintcream;
 }
 
-.nawigacja a:last-of-type {
+header .nawigacja li:last-of-type a {
     display: block;
     padding-right: 2rem;
     background-color: mintcream;
@@ -159,7 +159,7 @@ aside.bannery-pozaekranowe {
     justify-content: center;
     background-color: khaki;
     margin: 0.3rem;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */    /* ZWERYFIKOWAĆ KONIECZNOŚĆ ISTNIENIA TEJ DEFINICJI */
     transition: opacity 0.15s ease-in;
 }
 
@@ -230,12 +230,12 @@ main > section img {
     background-color: lightskyblue;
 }
 
-.kontener-pozaekranowy.etapy-przelewow section {
+.etapy-przelewow section {
     background-color: lightgoldenrodyellow;
 }
 
-.kontener-pozaekranowy section:nth-of-type(2n) {
-    background-color: goldenrod;
+.etapy-przelewow section:nth-of-type(2n) {
+    background-color: papayawhip;
 }
 
 .rozjasniony-polprzezroczysty-blokowy {
@@ -292,6 +292,10 @@ main > section img {
         margin-top: 8rem;
     }
 
+    .nawigacja-etapow {
+        flex-direction: row;
+    }
+
 }
 
 @media screen and (min-width: 700px) {
@@ -321,6 +325,14 @@ main > section img {
     main > section:last-of-type,
     .kontener-pozaekranowy section {
         padding: 0.75rem;
+    }
+
+    .nawigacja-etapow {
+        justify-content: space-around;
+    }
+
+    .nawigacja-etapow li {
+        flex-basis: 15%;
     }
 
 }
