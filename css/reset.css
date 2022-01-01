@@ -16,7 +16,7 @@ html, body {
 	color: #000; 
 }
 html, body, input, option, optgroup, select { 
-	font-family: 'Muli', sans-serif;			/* Muli -  czcionka zewnętrzna z googla */
+	font-family: sans-serif;
 	}
 ol, ul { 
 	list-style: none; 

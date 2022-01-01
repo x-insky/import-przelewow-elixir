@@ -1,7 +1,7 @@
 var odnosnikiMenuNawigacyjnego = document.querySelectorAll('header nav a'),    // każdy <a> w <nav>
     kontenerPodstronGlownychDzialow = document.querySelector('.glowne-dzialy > article'),    
     podstronyGlownychDzialow = document.querySelectorAll('.glowne-dzialy > article > section'),
-    odnosnikiEtapowPrzelewow = document.querySelectorAll('.nawigacja-etapow a'),
+    odnosnikiEtapowPrzelewow = document.querySelectorAll('#nawigacja-etapow a'),
     kontenerEtapowPrzelewow = document.querySelector('.etapy-przelewow > article'),
     podstronyEtapowPrzelewow = document.querySelectorAll('.etapy-przelewow > article > section');
 
