@@ -1,9 +1,14 @@
 var odnosnikiMenuNawigacyjnego = document.querySelectorAll('header nav a'),    // każdy <a> w <nav>
     kontenerPodstronGlownychDzialow = document.querySelector('.glowne-dzialy > article'),    
     podstronyGlownychDzialow = document.querySelectorAll('.glowne-dzialy > article > section'),
+
     odnosnikiEtapowPrzelewow = document.querySelectorAll('#nawigacja-etapow a'),
     kontenerEtapowPrzelewow = document.querySelector('.etapy-przelewow > article'),
-    podstronyEtapowPrzelewow = document.querySelectorAll('.etapy-przelewow > article > section');
+    podstronyEtapowPrzelewow = document.querySelectorAll('.etapy-przelewow > article > section'),
+
+    odnosnikiMenuKontrahentow = document.querySelectorAll('#nawigacja-kontrahenci a'),
+    kontenerKontrahentow = document.querySelector('.kontrahenci > article'),
+    podstronyKontrahentow = document.querySelectorAll('.kontrahenci > article > section');
 
 
         /*  ************************************************
@@ -53,3 +58,9 @@ console.log('podstronyEtapowPrzelewow', podstronyEtapowPrzelewow.length, ': ', p
 console.log('odnosnikiEtapowPrzelewow', odnosnikiEtapowPrzelewow.length, ': ', odnosnikiEtapowPrzelewow);
 
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiEtapowPrzelewow, kontenerEtapowPrzelewow, podstronyEtapowPrzelewow.length );    // reakcja na nawigację ETAPÓW PRZELEWÓW (zagnieżdżona podkategoria)
+
+console.log('kontenerKontrahentow', kontenerKontrahentow.length, ': ', kontenerKontrahentow);
+console.log('podstronyKontrahentow', podstronyKontrahentow.length, ': ', podstronyKontrahentow);
+console.log('odnosnikiMenuKontrahentow', odnosnikiMenuKontrahentow.length, ': ', odnosnikiMenuKontrahentow);
+
+powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuKontrahentow, kontenerKontrahentow, podstronyKontrahentow.length );    // reakcja na nawigację poddziału KONTRAHENTÓW (zagnieżdżona podkategoria)
