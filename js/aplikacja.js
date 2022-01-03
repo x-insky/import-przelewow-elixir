@@ -1,3 +1,15 @@
+var kontrahenci = [];
+
+var przykladowyKontrahent = {
+    nazwa: 'Osoba Jakaś',
+    nrKonta: '12345678901234567890123456',
+    osobaFizyczna: true,
+    adresMiejscowosc: 'Warszawa',
+    adresKod: '01-234',
+    adresTypSzczegoly: 'al.',
+    adresSzczegoly: 'Wielka 6/3'
+};
+
 var odnosnikiMenuNawigacyjnego = document.querySelectorAll('header nav a'),    // każdy <a> w <nav>
     kontenerPodstronGlownychDzialow = document.querySelector('.glowne-dzialy > article'),    
     podstronyGlownychDzialow = document.querySelectorAll('.glowne-dzialy > article > section'),
@@ -27,9 +39,9 @@ function powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera ( listaOdnos
         odnosnik.addEventListener('click', function ( evt ) {
             evt.preventDefault();   // wyłączenie domyślnego zachowania - brak przejścia do elementu docelowego 
     
-            var nrEtapu = parseInt( evt.target.getAttribute('data-nr') - 1 ) || 0; // odczytanie atrybutu wyzwalacza (-1 dla liczenia od zera), asekuracja zerem
-            nrEtapu = ( nrEtapu === idx ) ? idx : 0;  // werfikacja braku grzebania w strukturze
-            console.log( evt.target, evt.target.getAttribute('data-nr'), nrEtapu, idx );
+            var nrOczekiwany = parseInt( evt.target.getAttribute('data-nr') - 1 ) || 0; // odczytanie atrybutu wyzwalacza (-1 dla liczenia od zera), asekuracja zerem
+            nrOczekiwany = ( nrOczekiwany === idx ) ? idx : 0;  // werfikacja braku grzebania w strukturze
+            console.log( 'element:', evt.target, 'atrybut elementu:', evt.target.getAttribute('data-nr'), 'nrOczekiwany:', nrOczekiwany, 'index:', idx );
     
             var stylLeft = ( idx * ( -1 * 100 / ileElementowSterowanych ) ).toString() + '%'; // odjęcie widoku o skok o widoczny element (co X%), zależnie od ilości elementów
             console.log( idx, stylLeft );
