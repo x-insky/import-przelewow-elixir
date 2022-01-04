@@ -283,6 +283,25 @@ main > section img {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
+.test-klasa-klient {
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    background-color: khaki;
+    border: 1px solid grey;
+}
+
+.test-klasa-klient p {
+    padding: 0;;
+}
+
+.test-nazwa-osoby {
+    color: indigo;
+}
+
+.test-dane-adresowe {
+    font-size: 0.75rem;
+}
+
         /*  ********************************************
                     A   N   I   M   A   C   J   E       
             ********************************************

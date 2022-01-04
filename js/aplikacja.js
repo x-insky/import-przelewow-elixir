@@ -1,14 +1,17 @@
 var kontrahenci = [];
 
 var przykladowyKontrahent = {
-    nazwa: 'Osoba Jakaś',
+    nazwa: 'Osoba Jakaś-Przykładowa',
     nrKonta: '12345678901234567890123456',
     osobaFizyczna: true,
-    adresMiejscowosc: 'Warszawa',
-    adresKod: '01-234',
+    miejscowosc: 'Warszawa',
+    kod: '01-234',
     adresTypSzczegoly: 'al.',
-    adresSzczegoly: 'Wielka 6/3'
+    adresSzczegoly: 'Wielka 6/3',
+    opis: 'dowolny tekst'
 };
+
+var elementKontrahenta;
 
 var odnosnikiMenuNawigacyjnego = document.querySelectorAll('header nav a'),    // każdy <a> w <nav>
     kontenerPodstronGlownychDzialow = document.querySelector('.glowne-dzialy > article'),    
@@ -56,6 +59,54 @@ function powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera ( listaOdnos
     });
 }   // powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera-END
 
+function budujElementKontrahenta ( klient ) {
+
+    var kontenerekDiv = document.createElement('div'),
+        pElem = document.createElement('p'),
+        tekstElem = document.createTextNode( klient.nazwa ),
+        daneAdresowe = klient.adresTypSzczegoly + " " + klient.adresSzczegoly + ", " + klient.kod + " " + klient.miejscowosc,
+        tekstElementAdresowy = document.createTextNode( daneAdresowe ),
+        pElementAdresowy = document.createElement('p'),
+        spanElem = document.createElement('span'),
+        czyOsobaElem = document.createElement('input'),
+        przyciskElem = document.createElement('button');
+
+kontenerekDiv.classList.add('test-klasa-klient');
+
+pElem.appendChild( tekstElem );  // dodanie samego tekstu do elementu z tablicy
+pElem.classList.add('test-nazwa-osoby');   // dodanie zdefiniownej klasy dla tekstu - inny wygląd
+
+pElementAdresowy.appendChild( tekstElementAdresowy ); // drugi wiersz
+pElementAdresowy.classList.add('test-dane-adresowe');
+
+przyciskElem.textContent = 'Wykonanie dowolnej akcji';  
+spanElem.appendChild( przyciskElem );
+
+spanElem.prepend( czyOsobaElem ); // status osoby przed przyciskiem akcji 
+czyOsobaElem.setAttribute('type', 'checkbox');      // dodanie atrybutu, jako określenie typu tego przycisku  
+    if ( klient.osobaFizyczna ) {
+        czyOsobaElem.setAttribute('checked', true);    // warunkowe zaznacznie lub nie (odczyt )
+        czyOsobaElem.setAttribute('title', 'osoba fizyczna: TAK');    // ale ten opisowy atrybut jest zawsze dodawany
+    }
+    else {
+        czyOsobaElem.setAttribute('title', 'osoba fizyczna: NIE');    // przeciwna treść atrybutu opisowego
+    }
+czyOsobaElem.addEventListener('change', function ( evt ) {
+    evt.preventDefault();   // nic nie rób
+    var stan = evt.target.getAttribute('checked');
+    console.log('stan przycisku:', stan);
+    if ( stan ) evt.target.setAttribute('checked', true);
+    else evt.target.setAttribute('checked', false);
+    //return false;
+});        // + zdarzenie 'click/change'
+
+pElem.appendChild( spanElem );
+kontenerekDiv.appendChild( pElem );  // przypisanie zawartości tekstowej dla nowego obiektu tekstowego w <li>
+kontenerekDiv.appendChild( pElementAdresowy); // drugi wiersz z danumi adresowymi
+
+return kontenerekDiv;   // zwróć to. co tutaj zbudowano dla jednej pozycji listy
+}
+
 
         /*  *****************************************************
                 U   R   U   C   H   O   M   I   E   N   I   E           
@@ -76,3 +127,8 @@ console.log('podstronyKontrahentow', podstronyKontrahentow.length, ': ', podstro
 console.log('odnosnikiMenuKontrahentow', odnosnikiMenuKontrahentow.length, ': ', odnosnikiMenuKontrahentow);
 
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuKontrahentow, kontenerKontrahentow, podstronyKontrahentow.length );    // reakcja na nawigację poddziału KONTRAHENTÓW (zagnieżdżona podkategoria)
+
+elementKontrahenta = budujElementKontrahenta( przykladowyKontrahent );
+console.log( elementKontrahenta );
+
+document.getElementById('kontrahent-lista').appendChild( elementKontrahenta );
