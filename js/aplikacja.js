@@ -1,6 +1,5 @@
-var kontrahenci = [];
-
-var przykladowyKontrahent = {
+var kontrahenci = [     // przykładowe dane osób i firm
+{
     nazwa: 'Osoba Jakaś-Przykładowa',
     nrKonta: '12345678901234567890123456',
     osobaFizyczna: true,
@@ -9,9 +8,28 @@ var przykladowyKontrahent = {
     adresTypSzczegoly: 'al.',
     adresSzczegoly: 'Wielka 6/3',
     opis: 'dowolny tekst'
-};
+},{
+    nazwa: 'Bartosz Jakistam',
+    nrKonta: '56789012345678901234561234',
+    osobaFizyczna: true,
+    miejscowosc: 'Strzelce Krajeńskie',
+    kod: '23-456',
+    adresTypSzczegoly: 'ul.',
+    adresSzczegoly: 'Spółdzielcza 24E/9',
+    opis: 'cokolwiek, co mnie definiuje'
+},{
+    nazwa: 'Pierwsza Firma z o.o.',
+    nrKonta: '67890123456789012345612345',
+    osobaFizyczna: false,
+    miejscowosc: 'Gorzów Wielkopolski',
+    kod: '34-567',
+    adresTypSzczegoly: 'ul.',
+    adresSzczegoly: 'Lotnicza 58',
+    opis: 'niewypłacalne dranie'
+}
+];
 
-var elementKontrahenta;
+var elementKontrahentow = document.createElement('div');
 
 var odnosnikiMenuNawigacyjnego = document.querySelectorAll('header nav a'),    // każdy <a> w <nav>
     kontenerPodstronGlownychDzialow = document.querySelector('.glowne-dzialy > article'),    
@@ -64,23 +82,35 @@ function budujElementKontrahenta ( klient ) {
     var kontenerekDiv = document.createElement('div'),
         pElem = document.createElement('p'),
         tekstElem = document.createTextNode( klient.nazwa ),
+        kontenerekDivSzczegoly = document.createElement('div'),
         daneAdresowe = klient.adresTypSzczegoly + " " + klient.adresSzczegoly + ", " + klient.kod + " " + klient.miejscowosc,
         tekstElementAdresowy = document.createTextNode( daneAdresowe ),
         pElementAdresowy = document.createElement('p'),
+        tekstElementKonto = document.createTextNode( klient.nrKonta ),
+        pElementKonto = document.createElement('p'),
         spanElem = document.createElement('span'),
         czyOsobaElem = document.createElement('input'),
-        przyciskElem = document.createElement('button');
+        przyciskElem = document.createElement('button'),
+        nazwaTypu = klient.osobaFizyczna ? 'osoba' : 'firma';   // nazwa typu z odstępami
 
 kontenerekDiv.classList.add('test-klasa-klient');
 
 pElem.appendChild( tekstElem );  // dodanie samego tekstu do elementu z tablicy
 pElem.classList.add('test-nazwa-osoby');   // dodanie zdefiniownej klasy dla tekstu - inny wygląd
 
-pElementAdresowy.appendChild( tekstElementAdresowy ); // drugi wiersz
-pElementAdresowy.classList.add('test-dane-adresowe');
+if ( klient.osobaFizyczna ) {
+    czyOsobaElem.setAttribute('checked', true);    // warunkowe zaznacznie lub nie (odczyt )
+    czyOsobaElem.setAttribute('title', 'osoba fizyczna: TAK');    // ale ten opisowy atrybut jest zawsze dodawany
+}
+else {
+    czyOsobaElem.setAttribute('title', 'osoba fizyczna: NIE');    // przeciwna treść atrybutu opisowego
+}
 
-przyciskElem.textContent = 'Wykonanie dowolnej akcji';  
+przyciskElem.textContent = 'Wykonanie dowolnej akcji';
 spanElem.appendChild( przyciskElem );
+spanElem.classList.add('test-kolor');
+
+spanElem.prepend ( document.createTextNode( nazwaTypu ) );
 
 spanElem.prepend( czyOsobaElem ); // status osoby przed przyciskiem akcji 
 czyOsobaElem.setAttribute('type', 'checkbox');      // dodanie atrybutu, jako określenie typu tego przycisku  
@@ -95,16 +125,27 @@ czyOsobaElem.addEventListener('change', function ( evt ) {
     evt.preventDefault();   // nic nie rób
     var stan = evt.target.getAttribute('checked');
     console.log('stan przycisku:', stan);
-    if ( stan ) evt.target.setAttribute('checked', true);
+    if ( stan ) evt.target.setAttribute('checked', true);   // ?! jak zablokować bez [DISABLED]
     else evt.target.setAttribute('checked', false);
     //return false;
 });        // + zdarzenie 'click/change'
 
 pElem.appendChild( spanElem );
-kontenerekDiv.appendChild( pElem );  // przypisanie zawartości tekstowej dla nowego obiektu tekstowego w <li>
-kontenerekDiv.appendChild( pElementAdresowy); // drugi wiersz z danumi adresowymi
 
-return kontenerekDiv;   // zwróć to. co tutaj zbudowano dla jednej pozycji listy
+pElementAdresowy.appendChild( tekstElementAdresowy ); // drugi wiersz: adres
+pElementAdresowy.classList.add('test-dane-adresowe');
+
+pElementKonto.appendChild( tekstElementKonto );
+pElementKonto.classList.add('test-dane-konto');
+
+kontenerekDivSzczegoly.classList.add('test-szczegoly');
+kontenerekDivSzczegoly.appendChild( pElementAdresowy );
+kontenerekDivSzczegoly.appendChild( pElementKonto );    // drugi wiersz: konto
+
+kontenerekDiv.appendChild( pElem );  // przypisanie zawartości tekstowej dla nowego obiektu tekstowego w <li>
+kontenerekDiv.appendChild( kontenerekDivSzczegoly ); // drugi wiersz z danymi adresowymi i numerem konta
+
+return kontenerekDiv;   // zwróć to, co tutaj zbudowano dla jednej pozycji listy
 }
 
 
@@ -116,19 +157,24 @@ return kontenerekDiv;   // zwróć to. co tutaj zbudowano dla jednej pozycji lis
 
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuNawigacyjnego, kontenerPodstronGlownychDzialow, podstronyGlownychDzialow.length );   // reakcja na nawigację DZIAŁÓW WITRYNY 
 
-console.log('kontenerEtapowPrzelewow', kontenerEtapowPrzelewow.length, ': ', kontenerEtapowPrzelewow);
+console.log('kontenerEtapowPrzelewow', ': ', kontenerEtapowPrzelewow);
 console.log('podstronyEtapowPrzelewow', podstronyEtapowPrzelewow.length, ': ', podstronyEtapowPrzelewow);
 console.log('odnosnikiEtapowPrzelewow', odnosnikiEtapowPrzelewow.length, ': ', odnosnikiEtapowPrzelewow);
 
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiEtapowPrzelewow, kontenerEtapowPrzelewow, podstronyEtapowPrzelewow.length );    // reakcja na nawigację ETAPÓW PRZELEWÓW (zagnieżdżona podkategoria)
 
-console.log('kontenerKontrahentow', kontenerKontrahentow.length, ': ', kontenerKontrahentow);
+console.log('kontenerKontrahentow', ': ', kontenerKontrahentow);
 console.log('podstronyKontrahentow', podstronyKontrahentow.length, ': ', podstronyKontrahentow);
 console.log('odnosnikiMenuKontrahentow', odnosnikiMenuKontrahentow.length, ': ', odnosnikiMenuKontrahentow);
 
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuKontrahentow, kontenerKontrahentow, podstronyKontrahentow.length );    // reakcja na nawigację poddziału KONTRAHENTÓW (zagnieżdżona podkategoria)
 
-elementKontrahenta = budujElementKontrahenta( przykladowyKontrahent );
-console.log( elementKontrahenta );
 
-document.getElementById('kontrahent-lista').appendChild( elementKontrahenta );
+kontrahenci.forEach( function( kontrahent ) {
+    var elementKontrahenta = budujElementKontrahenta( kontrahent ); // wytwórz strukturę dl ajednego elementu na podstawie danych
+    // console.log( elementKontrahenta );
+    elementKontrahentow.appendChild( elementKontrahenta );  // wstaw do bloku to co zbudowano po sztuce
+
+});
+
+document.getElementById('kontrahent-lista').appendChild( elementKontrahentow );
