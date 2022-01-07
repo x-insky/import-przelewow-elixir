@@ -123,10 +123,11 @@ czyOsobaElem.setAttribute('type', 'checkbox');      // dodanie atrybutu, jako ok
     }
 czyOsobaElem.addEventListener('change', function ( evt ) {
     evt.preventDefault();   // nic nie rób
-    var stan = evt.target.getAttribute('checked');
+    event.stopPropagation();
+    var stan = !!evt.target.getAttribute('checked');
     console.log('stan przycisku:', stan);
-    if ( stan ) evt.target.setAttribute('checked', true);   // ?! jak zablokować bez [DISABLED]
-    else evt.target.setAttribute('checked', false);
+    if ( stan ) evt.target.setAttribute('checked', 'checked');   // ?! jak zablokować bez [DISABLED]
+    else evt.target.removeAttribute('checked');
     //return false;
 });        // + zdarzenie 'click/change'
 
