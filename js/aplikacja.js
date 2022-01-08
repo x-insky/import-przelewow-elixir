@@ -1,6 +1,7 @@
 var kontrahenci = [     // przykładowe dane osób i firm
 {
-    nazwa: 'Osoba Jakaś-Przykładowa',
+    imie: 'Anna',
+    nazwisko: 'Jakaś-Przykładowa',
     nrKonta: '12345678901234567890123456',
     osobaFizyczna: true,
     miejscowosc: 'Warszawa',
@@ -9,7 +10,8 @@ var kontrahenci = [     // przykładowe dane osób i firm
     adresSzczegoly: 'Wielka 6/3',
     opis: 'dowolny tekst'
 },{
-    nazwa: 'Bartosz Jakistam',
+    imie: 'Bartosz',
+    nazwisko: 'Kolejny',
     nrKonta: '56789012345678901234561234',
     osobaFizyczna: true,
     miejscowosc: 'Strzelce Krajeńskie',
@@ -18,7 +20,8 @@ var kontrahenci = [     // przykładowe dane osób i firm
     adresSzczegoly: 'Spółdzielcza 24E/9',
     opis: 'cokolwiek, co mnie definiuje'
 },{
-    nazwa: 'Pierwsza Firma z o.o.',
+    nazwa: 'Pierwsza Firma',
+    formaDzialalnosci: 'z o.o.',
     nrKonta: '67890123456789012345612345',
     osobaFizyczna: false,
     miejscowosc: 'Gorzów Wielkopolski',
@@ -81,7 +84,7 @@ function budujElementKontrahenta ( klient ) {
 
     var kontenerekDiv = document.createElement('div'),
         pElem = document.createElement('p'),
-        tekstElem = document.createTextNode( klient.nazwa ),
+        tekstElem,
         kontenerekDivSzczegoly = document.createElement('div'),
         daneAdresowe = klient.adresTypSzczegoly + " " + klient.adresSzczegoly + ", " + klient.kod + " " + klient.miejscowosc,
         tekstElementAdresowy = document.createTextNode( daneAdresowe ),
@@ -95,6 +98,8 @@ function budujElementKontrahenta ( klient ) {
 
 kontenerekDiv.classList.add('test-klasa-klient');
 
+if ( klient.osobaFizyczna ) tekstElem = document.createTextNode( klient.imie + " " + klient.nazwisko );
+else tekstElem = document.createTextNode( klient.nazwa + " " + klient.formaDzialalnosci);
 pElem.appendChild( tekstElem );  // dodanie samego tekstu do elementu z tablicy
 pElem.classList.add('test-nazwa-osoby');   // dodanie zdefiniownej klasy dla tekstu - inny wygląd
 
@@ -121,15 +126,14 @@ czyOsobaElem.setAttribute('type', 'checkbox');      // dodanie atrybutu, jako ok
     else {
         czyOsobaElem.setAttribute('title', 'osoba fizyczna: NIE');    // przeciwna treść atrybutu opisowego
     }
-czyOsobaElem.addEventListener('change', function ( evt ) {
-    evt.preventDefault();   // nic nie rób
-    event.stopPropagation();
+czyOsobaElem.addEventListener('click', function ( evt ) {
     var stan = !!evt.target.getAttribute('checked');
     console.log('stan przycisku:', stan);
-    if ( stan ) evt.target.setAttribute('checked', 'checked');   // ?! jak zablokować bez [DISABLED]
+    if ( stan ) evt.target.setAttribute('checked', 'checked');
     else evt.target.removeAttribute('checked');
-    //return false;
-});        // + zdarzenie 'click/change'
+
+    evt.preventDefault();   // nic nie rób
+});        // zdarzenie 'click'
 
 pElem.appendChild( spanElem );
 
