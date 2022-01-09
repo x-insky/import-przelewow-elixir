@@ -331,6 +331,30 @@ main > section img {
     color: gray;
 }
 
+.pole {
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem;
+    background-color: darkseagreen;
+}
+
+.pole > label {
+    display: block;
+    padding: 0.25rem;
+    background-color: green;
+}
+
+.pole > input,
+.pole > textarea,
+.pole > select {
+    width: 100%;
+}
+
+.pole > input[type="submit"] {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
         /*  ********************************************
                     A   N   I   M   A   C   J   E       
             ********************************************
@@ -440,6 +464,15 @@ main > section img {
     #nawigacja-kontrahenci a {
         padding: 0.5rem;
     }
+
+    .pole {
+        flex-direction: row;
+    }
+    
+    .pole > label {
+        min-width: 300px;
+    }
+    
 
 }
 
