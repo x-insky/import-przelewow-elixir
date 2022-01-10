@@ -44,7 +44,11 @@ var odnosnikiMenuNawigacyjnego = document.querySelectorAll('header nav a'),    /
 
     odnosnikiMenuKontrahentow = document.querySelectorAll('#nawigacja-kontrahenci a'),
     kontenerKontrahentow = document.querySelector('.kontrahenci > article'),
-    podstronyKontrahentow = document.querySelectorAll('.kontrahenci > article > section');
+    podstronyKontrahentow = document.querySelectorAll('.kontrahenci > article > section'),
+
+    odnosnikiMenuKontrahentowDodaj = document.querySelectorAll('#nawigacja-kontrahenci-dodaj a'),
+    kontenerKontrahentowDodaj = document.querySelector('.kontrahent-dodaj-nowy > article'),
+    podstronyKontrahentowDodaj = document.querySelectorAll('.kontrahent-dodaj-nowy > article > section');
 
 
         /*  ************************************************
@@ -174,6 +178,7 @@ console.log('odnosnikiMenuKontrahentow', odnosnikiMenuKontrahentow.length, ': ',
 
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuKontrahentow, kontenerKontrahentow, podstronyKontrahentow.length );    // reakcja na nawigację poddziału KONTRAHENTÓW (zagnieżdżona podkategoria)
 
+powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuKontrahentowDodaj, kontenerKontrahentowDodaj, podstronyKontrahentowDodaj.length );    // reakcja na nawigację poddziału KONTRAHENTÓW (zagnieżdżona podkategoria)
 
 kontrahenci.forEach( function( kontrahent ) {
     var elementKontrahenta = budujElementKontrahenta( kontrahent ); // wytwórz strukturę dl ajednego elementu na podstawie danych

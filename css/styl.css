@@ -276,6 +276,10 @@ main > section img {
     background-color: lightskyblue;
 }
 
+#kontrahent-dodaj .menu-pozaekranowe > article {
+    width: 200%;    /* dwa elementy podległe */
+}
+
 .rozjasniony-polprzezroczysty-blokowy {
     display: block;
     padding: 0.75rem 0.5rem;
@@ -347,6 +351,7 @@ main > section img {
 .pole > input,
 .pole > textarea,
 .pole > select {
+    max-width: 400px;
     width: 100%;
 }
 
