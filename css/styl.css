@@ -174,7 +174,7 @@ aside.bannery-pozaekranowe {
     display: flex;
     flex-direction: row;
     position: relative;
-    min-height: 20px;   /* przykładowa mała  wysokość, którą i tak rozszerzy zawartość <li> najwyszższego elementu w grupie */  
+    min-height: 20px;   /* przykładowa mała wysokość, którą i tak rozszerzy zawartość <li> najwyższego elementu w grupie */  
     animation: przewijacz-czteroelementowy 20s ease-in-out infinite forwards;
     animation-direction: alternate-reverse;     /* zmiana kierunku animacji po wykonaniu pełnego cyklu; animacja komplementarna 0% == 100% */
     animation-play-state: running;
@@ -276,8 +276,12 @@ main > section img {
     background-color: lightskyblue;
 }
 
-#kontrahent-dodaj .menu-pozaekranowe > article {
+#kontrahent-dodaj .kontener-pozaekranowy {
     width: 200%;    /* dwa elementy podległe */
+}
+
+.kontener-pozaekranowy.kontrahent-dodaj-nowy > article > section {
+    flex-basis: 50%;
 }
 
 .rozjasniony-polprzezroczysty-blokowy {
@@ -344,15 +348,14 @@ main > section img {
 
 .pole > label {
     display: block;
-    padding: 0.25rem;
+    padding: 0.25rem 0.75rem;
     background-color: green;
 }
 
 .pole > input,
 .pole > textarea,
 .pole > select {
-    max-width: 400px;
-    width: 100%;
+    flex-basis: 75%;
 }
 
 .pole > input[type="submit"] {
@@ -472,10 +475,19 @@ main > section img {
 
     .pole {
         flex-direction: row;
+        justify-content: center;
     }
     
     .pole > label {
-        min-width: 300px;
+        width: 250px;
+        margin-right: 0.5rem;
+    }
+
+    .pole > input,
+    .pole > textarea,
+    .pole > select {
+        /* max-width: 700px; */
+        flex-basis: 60%;
     }
     
 
