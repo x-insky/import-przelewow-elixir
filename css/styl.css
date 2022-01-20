@@ -154,12 +154,13 @@ footer > p {
 
 .bannery-pozaekranowe,
 .menu-pozaekranowe {
+    width: 100%;    /* jawne wymuszenie poziomej zajętości; KONIECZNE DLA ZAWIERANIA POD-ELEMENTÓW i zajmowanej przez nie NIEOKREŚLONEJ szerokości*/
     overflow: hidden;
     margin: 2rem 0;
 }
 
 aside.bannery-pozaekranowe {
-    margin-top: 250px;  /* wartośc odczytana z poprzedniego rozmiaru headera, bez marginesu odzielającego (235px + margin) */
+    margin-top: 250px;  /* wartość odczytana z poprzedniego rozmiaru headera, bez marginesu odzielającego (235px + margin) */
 }
 
 .bannery-kontener,
@@ -238,6 +239,7 @@ main > section img {
 }
 
 .kontener-pozaekranowy > article {
+    width: 100%;
     display: flex;
     flex-direction: row;
     position: relative;
@@ -250,7 +252,8 @@ main > section img {
     transition: left ease-in-out 0.7s, translate ease-in-out 1s;
 }
 
-.kontener-pozaekranowy section {
+.kontener-pozaekranowy > article > section {
+    width: 20%;     /* standardowo rodzic zawiera po 5 elementów => 100% / 5 == 20% */
     background-color: lightblue;
     flex-basis: 100%;
     padding: 0.25rem;
@@ -268,7 +271,7 @@ main > section img {
     background-color: papayawhip;
 }
 
-.kontrahenci section {
+.kontrahenci > article > section {
     background-color: skyblue;
 }
 
