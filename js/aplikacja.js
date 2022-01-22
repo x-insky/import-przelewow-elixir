@@ -48,8 +48,10 @@ var odnosnikiMenuNawigacyjnego = document.querySelectorAll('header nav a'),    /
 
     odnosnikiMenuKontrahentowDodaj = document.querySelectorAll('#nawigacja-kontrahenci-dodaj a'),
     kontenerKontrahentowDodaj = document.querySelector('.kontrahent-dodaj-nowy > article'),
-    podstronyKontrahentowDodaj = document.querySelectorAll('.kontrahent-dodaj-nowy > article > section');
+    podstronyKontrahentowDodaj = document.querySelectorAll('.kontrahent-dodaj-nowy > article > section'),
 
+    glowneMenuNawigacyjne = document.querySelectorAll('header .menu-pokazywane-ukrywane')[0], // pobierz pierwszy pasujący, powienien być to <ul> w <header>-ze witryny  
+    przelacznikPokazywaniaMenuGlownego = document.querySelectorAll('header .przelacznik-widocznosci-menu')[0]; // jw. też wewnątrz pierwszego <header>-a (nie użyto id)
 
         /*  ************************************************
                         F   U   N   K   C   J   E           
@@ -155,7 +157,25 @@ kontenerekDiv.appendChild( pElem );  // przypisanie zawartości tekstowej dla no
 kontenerekDiv.appendChild( kontenerekDivSzczegoly ); // drugi wiersz z danymi adresowymi i numerem konta
 
 return kontenerekDiv;   // zwróć to, co tutaj zbudowano dla jednej pozycji listy
-}
+}   // budujElementKontrahenta-END
+
+function pokazUkryjMenu ( elementAktywujacy, elementMenuPokazUkryj, czyMenuGlowne ) {
+
+elementAktywujacy.addEventListener('click', function ( evt ) {
+    var elementZMarginesem,
+        czyPosiadaKlaseZMarginesem;
+
+    elementMenuPokazUkryj.classList.toggle('widoczne');
+        if ( czyMenuGlowne ) {
+            elementZMarginesem = document.querySelector('header + .bannery-pozaekranowe');
+            czyPosiadaKlaseZMarginesem = elementMenuPokazUkryj.classList.contains('widoczne');
+            console.log('czyPosiadaKlaseZMarginesem:', czyPosiadaKlaseZMarginesem);
+            if ( czyPosiadaKlaseZMarginesem ) elementZMarginesem.classList.add('dodaj-gorny-margines'); 
+            else elementZMarginesem.classList.remove('dodaj-gorny-margines');
+        }
+    });
+
+}   // pokazUkryjMenu-END
 
 
         /*  *****************************************************
@@ -163,6 +183,8 @@ return kontenerekDiv;   // zwróć to, co tutaj zbudowano dla jednej pozycji lis
             *****************************************************
         */
 
+
+pokazUkryjMenu( przelacznikPokazywaniaMenuGlownego, glowneMenuNawigacyjne, true );  // akcje dla klikania przycisku pokazywania/ukrywania głównego menu nawigacyjnego
 
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuNawigacyjnego, kontenerPodstronGlownychDzialow, podstronyGlownychDzialow.length );   // reakcja na nawigację DZIAŁÓW WITRYNY 
 

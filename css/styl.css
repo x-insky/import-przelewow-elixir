@@ -190,6 +190,10 @@ footer > p {
 }
 
 aside.bannery-pozaekranowe {
+    margin-top: 4rem;
+}
+
+aside.bannery-pozaekranowe.dodaj-gorny-margines {
     margin-top: 250px;  /* wartość odczytana z poprzedniego rozmiaru headera, bez marginesu odzielającego (235px + margin) */
 }
 
@@ -448,6 +452,10 @@ main > section img {
     }
 
     header + .bannery-pozaekranowe {
+        margin-top: 4rem;
+    }
+
+    header + .bannery-pozaekranowe.dodaj-gorny-margines {
         margin-top: 8rem;
     }
 
@@ -479,7 +487,9 @@ main > section img {
         flex-direction: row;
     }
 
+    .nawigacja > ul,
     .nawigacja > ul.widoczne {
+        display: flex;  /* menu zawsze widoczne, po przekroczeniu tego progu szerokości */
         align-items: stretch;
         margin-top: 0;
     }
@@ -492,7 +502,8 @@ main > section img {
         display: none;
     }
 
-    header + .bannery-pozaekranowe {
+    header + .bannery-pozaekranowe,
+    header + .bannery-pozaekranowe.dodaj-gorny-margines  {
         margin: 1.5rem 1rem;
         margin-top: 4rem;
     }
