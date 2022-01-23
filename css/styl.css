@@ -72,24 +72,39 @@ header {
     background-color: mediumspringgreen;
 }
 
-.nawigacja {
+.nawigacja,
+.nawigacja.menu-pokazywane-ukrywane.widoczne {  /* wariant z pokazywaniem warunkowym i nie zawsze zawsze wyświetlanym  */
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    opacity: 1;
+    height: auto;
     background-color: slategrey;
     position: relative;
+    transition: opacity 0.5s 0.2s, height 0.4s 0.15s;
+}
+
+.nawigacja.menu-pokazywane-ukrywane {
+    display: none;
+    opacity: 0;
+    height: 0;
 }
 
 .nawigacja > ul.widoczne {
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     margin-top: 0.65rem;
     background-color: papayawhip;
+    opacity: 1;
+    height: auto;
 }
 
 .nawigacja > ul {
     display: none;
+    height: 0px;
+    opacity: 0;
+    transition: opacity 0.5s 0.2s, height 0.4s 0.15s;
 }
 
 .nawigacja a {
@@ -98,7 +113,7 @@ header {
     background-color: mintcream;
 }
 
-.nawigacja > aside {
+.przelacznik-widocznosci-menu {
     position: absolute;
     height: auto;
     width: 5rem;
@@ -113,10 +128,9 @@ header {
     transition: color 0.3s, background-color 0.5s 0.1s;
 }
 
-.nawigacja > aside:hover {
+.przelacznik-widocznosci-menu:hover {
     color: black;
     background-color: orange;
-
 }
 
 #nawigacja-etapow {
@@ -297,12 +311,21 @@ main > section img {
     background-color: lightskyblue;
 }
 
+.glowne-dzialy .przelacznik-widocznosci-menu {
+    top: 0.75rem;
+    right: 0.5rem;
+}
+
 .etapy-przelewow section {
     background-color: lightgoldenrodyellow;
 }
 
 .etapy-przelewow section:nth-of-type(2n) {
     background-color: papayawhip;
+}
+
+#kontrahenci {
+    position: relative;
 }
 
 .kontrahenci > article > section {
@@ -487,10 +510,19 @@ main > section img {
         flex-direction: row;
     }
 
+    .nawigacja.menu-pokazywane-ukrywane, 
+    .nawigacja.menu-pokazywane-ukrywane.widoczne {  /* wariant zawsze wyświetlaniem nawigacji po przekroczeniu tej szerokości ekranu*/
+        display: flex;
+        opacity: 1;
+        height: auto;
+    }
+
     .nawigacja > ul,
     .nawigacja > ul.widoczne {
-        display: flex;  /* menu zawsze widoczne, po przekroczeniu tego progu szerokości */
+        display: flex;  /* menu nawigacyjne zawsze widoczne, po przekroczeniu tego progu szerokości */
         align-items: stretch;
+        opacity: 1;
+        height: auto;
         margin-top: 0;
     }
 
@@ -498,7 +530,7 @@ main > section img {
         padding: 0.5rem 1rem;
     }
 
-    #menu-zwijane {
+    .przelacznik-widocznosci-menu {
         display: none;
     }
 

@@ -51,7 +51,11 @@ var odnosnikiMenuNawigacyjnego = document.querySelectorAll('header nav a'),    /
     podstronyKontrahentowDodaj = document.querySelectorAll('.kontrahent-dodaj-nowy > article > section'),
 
     glowneMenuNawigacyjne = document.querySelectorAll('header .menu-pokazywane-ukrywane')[0], // pobierz pierwszy pasujący, powienien być to <ul> w <header>-ze witryny  
-    przelacznikPokazywaniaMenuGlownego = document.querySelectorAll('header .przelacznik-widocznosci-menu')[0]; // jw. też wewnątrz pierwszego <header>-a (nie użyto id)
+    przelacznikPokazywaniaMenuGlownego = document.querySelectorAll('header .przelacznik-widocznosci-menu')[0], // jw. też wewnątrz pierwszego <header>-a (nie użyto id)
+
+    menuNawigacyjneKontrahenci = document.querySelectorAll('#kontrahenci .menu-pokazywane-ukrywane')[0], // pobierz pierwszy pasujący, powienien być to <ul> w <header>-ze witryny  
+    przelacznikPokazywaniaMenuKontrahenci = document.querySelectorAll('#kontrahenci .przelacznik-widocznosci-menu')[0]; // jw. też wewnątrz pierwszego <header>-a (nie użyto id)
+
 
         /*  ************************************************
                         F   U   N   K   C   J   E           
@@ -183,9 +187,6 @@ elementAktywujacy.addEventListener('click', function ( evt ) {
             *****************************************************
         */
 
-
-pokazUkryjMenu( przelacznikPokazywaniaMenuGlownego, glowneMenuNawigacyjne, true );  // akcje dla klikania przycisku pokazywania/ukrywania głównego menu nawigacyjnego
-
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuNawigacyjnego, kontenerPodstronGlownychDzialow, podstronyGlownychDzialow.length );   // reakcja na nawigację DZIAŁÓW WITRYNY 
 
 console.log('kontenerEtapowPrzelewow', ': ', kontenerEtapowPrzelewow);
@@ -201,6 +202,12 @@ console.log('odnosnikiMenuKontrahentow', odnosnikiMenuKontrahentow.length, ': ',
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuKontrahentow, kontenerKontrahentow, podstronyKontrahentow.length );    // reakcja na nawigację poddziału KONTRAHENTÓW (zagnieżdżona podkategoria)
 
 powiazZdarzenieKliknieciaWNawigacjiZPrzewinieciemKontenera( odnosnikiMenuKontrahentowDodaj, kontenerKontrahentowDodaj, podstronyKontrahentowDodaj.length );    // reakcja na nawigację poddziału KONTRAHENTÓW (zagnieżdżona podkategoria)
+
+
+pokazUkryjMenu( przelacznikPokazywaniaMenuGlownego, glowneMenuNawigacyjne, true );  // akcje dla klikania przycisku pokazywania/ukrywania głównego menu nawigacyjnego
+
+pokazUkryjMenu( przelacznikPokazywaniaMenuKontrahenci, menuNawigacyjneKontrahenci, false );  // akcje dla klikania przycisku pokazywania/ukrywania menu nawigacyjnego kontrahentów
+
 
 kontrahenci.forEach( function( kontrahent ) {
     var elementKontrahenta = budujElementKontrahenta( kontrahent ); // wytwórz strukturę dl ajednego elementu na podstawie danych
