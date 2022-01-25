@@ -215,13 +215,11 @@ footer > p {
 
 .bannery-pozaekranowe {
     width: auto;    /* przywraca bannery na miejsce i nie przesuwa je w prawo o różnicę ich szerokości, a całą dostepną szerokość ich kontenera (jak przy ==100%) */
-}
-
-aside.bannery-pozaekranowe {
     margin-top: 4rem;
+    transition: margin-top 0.3s 0.15s;
 }
 
-aside.bannery-pozaekranowe.dodaj-gorny-margines {
+.bannery-pozaekranowe.dodaj-gorny-margines {
     margin-top: 250px;  /* wartość odczytana z poprzedniego rozmiaru headera, bez marginesu odzielającego (235px + margin) */
 }
 
@@ -464,13 +462,16 @@ main > section img {
 @keyframes pokazywacz-wysokosciowy {
     0%, 10% {
         opacity: 0;
-        height: 0;
-        overflow: hidden;
+        /* height: 0; */
+        min-height: 0;
+        top: -100%;
+            /* overflow: hidden; */
     } 
     90%, 100% {
         opacity: 1;
-        height: auto;
-        /* overflow: auto; */
+        min-height: auto;
+        top: 0;
+            /* overflow: auto; */
     }
 }
 
